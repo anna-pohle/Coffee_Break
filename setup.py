@@ -18,9 +18,12 @@ OPTIONS = {
         'NSHighResolutionCapable': True,
     },
     'packages': ['rumps'],
-    'includes': ['objc', 'Foundation', 'AppKit'],
+    'includes': ['objc', 'Foundation', 'AppKit', "ctypes"],
     'excludes': ['tkinter', 'matplotlib', 'numpy', 'scipy', 'pandas'],
     'site_packages': True,
+    "frameworks": [
+        "/opt/homebrew/opt/libffi/lib/libffi.8.dylib",
+    ],
 }
 
 setup(

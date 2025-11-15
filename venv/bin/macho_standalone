@@ -1,4 +1,4 @@
-#!/Users/anna/PycharmProjects/PythonProject/CoffeeBreak/venv/bin/python3.12
+#!/Users/grischaandreew/Projekte/ilja/Coffee_Break/venv/bin/python3
 import sys
 from macholib.macho_standalone import main
 if __name__ == '__main__':

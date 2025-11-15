@@ -61,7 +61,7 @@ def _site_packages(prefix, real_prefix, global_site_packages):
         )
 
 
-_site_packages('/Users/anna/PycharmProjects/PythonProject/CoffeeBreak/venv', '/Library/Frameworks/Python.framework/Versions/3.12', 0)
+_site_packages('/Users/grischaandreew/Projekte/ilja/Coffee_Break/venv', '/Users/grischaandreew/Projekte/ilja/Coffee_Break/venv', 0)
 
 def _chdir_resource():
     import os
@@ -201,7 +201,7 @@ def _setup_openssl():
     import os
     resourcepath = os.environ["RESOURCEPATH"]
     os.environ["SSL_CERT_FILE"] = os.path.join(
-        resourcepath, "openssl.ca", "no-such-file")
+        resourcepath, "openssl.ca", "cert.pem")
     os.environ["SSL_CERT_DIR"] = os.path.join(
         resourcepath, "openssl.ca", "no-such-file")
 

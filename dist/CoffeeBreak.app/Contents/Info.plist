@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>CoffeeBreak</string>
 	<key>CFBundleIconFile</key>
-	<string>PythonApplet.icns</string>
+	<string>CoffeeBreak</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.coffeebreak.app</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -67,16 +67,17 @@
 	<array/>
 	<key>PyRuntimeLocations</key>
 	<array>
-		<string>@executable_path/../Frameworks/Python.framework/Versions/3.12/Python</string>
+		<string>@executable_path/../Frameworks/libpython3.9.dylib</string>
 	</array>
 	<key>PythonInfoDict</key>
 	<dict>
 		<key>PythonExecutable</key>
-		<string>/Users/anna/PycharmProjects/PythonProject/CoffeeBreak/venv/bin/python</string>
+		<string>/Users/grischaandreew/Projekte/ilja/Coffee_Break/venv/bin/python</string>
 		<key>PythonLongVersion</key>
-		<string>3.12.3 (v3.12.3:f6650f9ad7, Apr  9 2024, 08:18:47) [Clang 13.0.0 (clang-1300.0.29.30)]</string>
+		<string>3.9.16 | packaged by conda-forge | (main, Feb  1 2023, 21:38:11) 
+[Clang 14.0.6 ]</string>
 		<key>PythonShortVersion</key>
-		<string>3.1</string>
+		<string>3.9</string>
 		<key>py2app</key>
 		<dict>
 			<key>alias</key>
