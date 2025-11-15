@@ -167,12 +167,24 @@ REMINDERS = [
 
 
 class CoffeeBreakApp(rumps.App):
+    icons = [
+        [0, "🦊"],
+        [3600, "☕️"], # 1 hour
+        [7200, "🍎"], # 2 hours
+        [10800, "👀"], # 3 hours
+        [14400, "⚠️"], # 4 hours
+        [18000, "🌊"], # 5 hours
+        [21600, "🔥"], # 6 hours
+        [25200, "🌙"], # 7 hours
+        [28800, "💀"], # 8 hours
+    ]
     def __init__(self):
         super(CoffeeBreakApp, self).__init__(
             "☕️",
             title="☕️",
             quit_button=None  # Custom quit button
         )
+        
         
         # State variables
         self.active_time = 0  # Sekunden aktiver Nutzung heute
@@ -183,6 +195,9 @@ class CoffeeBreakApp(rumps.App):
         
         # Load state
         self.load_state()
+        
+        # Update icon based on active time
+        self.update_icon()
         
         # Menu items
         self.menu = [
@@ -231,6 +246,14 @@ class CoffeeBreakApp(rumps.App):
         except Exception as e:
             print(f"Error saving state: {e}")
     
+    def update_icon(self):
+        """Aktualisiert das Symbol basierend auf der aktiven Zeit"""
+        # 1 Stunde = 3600 Sekunden
+        for icon in self.icons:
+            if self.active_time >= icon[0]:
+                self.title = icon[1]
+                break
+    
     def get_idle_time(self):
         """Gibt die Idle-Zeit in Sekunden zurück"""
         try:
@@ -257,6 +280,7 @@ class CoffeeBreakApp(rumps.App):
             self.active_time = 0
             self.last_reminder = 0
             self.last_date = datetime.now().date()
+            self.update_icon()  # Reset icon for new day
         
         # Check if user is active (idle < 30 seconds)
         idle_time = self.get_idle_time()
@@ -269,6 +293,9 @@ class CoffeeBreakApp(rumps.App):
             hours = int(self.active_time // 3600)
             minutes = int((self.active_time % 3600) // 60)
             self.menu["Aktive Zeit: 0h 0m"].title = f"Aktive Zeit: {hours}h {minutes}m"
+            
+            # Update icon based on active time
+            self.update_icon()
             
             # Check if reminder needed (alle 2h = 7200 Sekunden)
             if self.active_time - self.last_reminder >= 7200:
