@@ -164,10 +164,7 @@ REMINDERS = [
     "Wasserpause = Denkpause = beides wichtig!"
     ]
 
-
-
-class CoffeeBreakApp(rumps.App):
-    icons = [
+TIMER_ICONS = [
         [0, "🐈"], # 🦊 🌪️ 🥟 🥜 🧟 ☕️ 🥟 👀 🔥 🌙 💀 🐈 🐈‍⬛ 🐅 🐆
         [900, "🐈‍⬛"], # 15 minutes
         [1800, "🐅"], # 30 minutes
@@ -182,6 +179,11 @@ class CoffeeBreakApp(rumps.App):
         [25200, "🌙"], # 7 hours
         [28800, "💀"], # 8 hours
     ]
+
+
+
+class CoffeeBreakApp(rumps.App):
+    
     def __init__(self):
         super(CoffeeBreakApp, self).__init__(
             "☕️",
@@ -252,11 +254,9 @@ class CoffeeBreakApp(rumps.App):
     
     def update_icon(self):
         """Aktualisiert das Symbol basierend auf der aktiven Zeit"""
-        # 1 Stunde = 3600 Sekunden
-        for icon in self.icons:
+        for icon in TIMER_ICONS:
             if self.active_time >= icon[0]:
                 self.title = icon[1]
-                break
     
     def get_idle_time(self):
         """Gibt die Idle-Zeit in Sekunden zurück"""
